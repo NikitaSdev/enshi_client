@@ -1,0 +1,1 @@
+export { BigSlide } from "./view";
