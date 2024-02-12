@@ -15,7 +15,7 @@ export const BlockedAnime = () => {
     <Box>
       {!isLoading &&
         data &&
-        data.map((anime) => (
+        data.map((anime: any) => (
           <Anime anime={anime as IAnime} key={anime.anime_id} />
         ))}
     </Box>
