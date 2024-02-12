@@ -30,7 +30,17 @@ export const AnimeList: FC<IAnimeList> = ({ anime, count, type }) => {
     "high-rated": getHighRated,
     new: getNew,
   };
-
+  useEffect(() => {
+    if (isTablet && !isMobile) {
+      setSize({ height: 250, width: 165 });
+    } else if (isMobile && !isSmallMobile) {
+      setSize({ height: 240, width: 150 });
+    } else if (isSmallMobile) {
+      setSize({ height: undefined, width: undefined });
+    } else {
+      setSize({ height: undefined, width: undefined });
+    }
+  }, [isTablet, isMobile, isSmallMobile]);
   const { data: animes, isLoading } = useQuery({
     queryKey: [type, page, genres, years, statuses],
     queryFn: async () => {
@@ -53,18 +63,6 @@ export const AnimeList: FC<IAnimeList> = ({ anime, count, type }) => {
   });
 
   if (isLoading) return null;
-
-  useEffect(() => {
-    if (isTablet && !isMobile) {
-      setSize({ height: 250, width: 165 });
-    } else if (isMobile && !isSmallMobile) {
-      setSize({ height: 240, width: 150 });
-    } else if (isSmallMobile) {
-      setSize({ height: undefined, width: undefined });
-    } else {
-      setSize({ height: undefined, width: undefined });
-    }
-  }, [isTablet, isMobile, isSmallMobile]);
 
   return (
     <div
