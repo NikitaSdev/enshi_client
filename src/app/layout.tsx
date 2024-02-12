@@ -69,7 +69,7 @@ export default function RootLayout({
         </div>
       </noscript>
       <body className={montserrat.className}>
-        <NextTopLoader color="#8C53FD" />
+        {/* <NextTopLoader color="#8C53FD" /> */}
         <ServiceWorkerRegister />
         <TanstackProvider>
           <AuthProvider>

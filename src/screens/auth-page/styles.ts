@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
 export const StyledContainer = styled("div")(() => ({
   width: "100%",
@@ -36,4 +36,16 @@ export const StyledNotificationError = styled("div")(() => ({
   alignItems: "flex-start",
   color: "red",
   fontSize: "14px",
+}));
+
+export const StyledButtonContainer = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "space-between",
+  marginTop: "1.875rem",
+  gap: 2,
+  "@media (max-width:480px)": {
+    flexDirection: "column",
+    alignItemsS: "center",
+    gap: 3,
+  },
 }));

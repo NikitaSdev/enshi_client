@@ -9,6 +9,7 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import { Input } from "@/shared/components/input";
 import {
   FormDiv,
+  StyledButtonContainer,
   StyledContainer,
   StyledDiv,
   StyledForm,
@@ -95,14 +96,7 @@ export const AuthPage: FC = () => {
                 {formState.errors.password.message}
               </StyledNotificationError>
             )}
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginTop: "1.875rem",
-                gap: 2,
-              }}
-            >
+            <StyledButtonContainer>
               <Button type="submit">Войти на сайт</Button>
               <Link href={"/register"} style={{ textDecoration: "none" }}>
                 <Button
@@ -112,7 +106,7 @@ export const AuthPage: FC = () => {
                   Регистрация
                 </Button>
               </Link>
-            </Box>
+            </StyledButtonContainer>
           </StyledForm>
         </FormDiv>
         {!isMobile && (

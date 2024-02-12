@@ -37,13 +37,15 @@ export const AnimeInfo: FC<IAnimeInfo> = ({ anime }) => {
               <Typography variant="subtitle2" fontSize={14}>
                 <pre>{data.year}</pre>
               </Typography>
-              <Typography fontSize={14}> {anime.year} г.</Typography>
+              <Typography variant="subtitle1" mt={-0.1} fontSize={14}>
+                {anime.year} г.
+              </Typography>
             </TextCard>
             <TextCard>
               <Typography variant="subtitle2" fontSize={14}>
                 <pre>{data.genre}</pre>
               </Typography>
-              <Typography fontSize={14}>
+              <Typography variant="subtitle1" mt={-0.1} fontSize={14}>
                 {anime.material_data.genres.slice(0, 2).join(", ")}
               </Typography>
             </TextCard>
@@ -51,12 +53,12 @@ export const AnimeInfo: FC<IAnimeInfo> = ({ anime }) => {
               <Typography variant="subtitle2" fontSize={14}>
                 <pre>{data.episode}</pre>
               </Typography>
-              <Typography fontSize={14}>
+              <Typography variant="subtitle1" mt={-0.1} fontSize={14}>
                 {anime.last_episode}/{anime.episodes_count}
               </Typography>
             </TextCard>
           </TextContainers>
-          <Typography mt={3}>
+          <Typography variant="subtitle1" fontSize={16} mt={3}>
             {anime.material_data.description.length > 440
               ? anime.material_data.description.slice(0, 440) + "..."
               : anime.material_data.description}

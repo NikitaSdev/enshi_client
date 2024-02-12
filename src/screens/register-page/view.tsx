@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { IRegister } from "./types";
 import {
   FormDiv,
+  StyledButtonContainer,
   StyledContainer,
   StyledDiv,
   StyledForm,
@@ -103,14 +104,7 @@ export const RegisterPage = () => {
                 {formState.errors.password.message}
               </StyledNotificationError>
             )}
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginTop: "1.875rem",
-                gap: 2,
-              }}
-            >
+            <StyledButtonContainer>
               <Button type="submit">Регистрация</Button>
               <Link href={"/login"} style={{ textDecoration: "none" }}>
                 <Button
@@ -120,7 +114,7 @@ export const RegisterPage = () => {
                   Авторизация
                 </Button>
               </Link>
-            </Box>
+            </StyledButtonContainer>
           </StyledForm>
         </FormDiv>
         {!isMobile && (
