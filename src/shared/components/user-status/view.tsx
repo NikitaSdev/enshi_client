@@ -16,6 +16,7 @@ export const UserStatus: FC<UserStatusProps> = ({ user_id }) => {
   });
 
   const getStatus = (viewedCount: number): string => {
+    if (!viewedCount) return "Новичок";
     if (viewedCount < 3) return "Новичок";
     else if (viewedCount < 6) return "Знаток";
     else if (viewedCount < 10) return "Кохай";
