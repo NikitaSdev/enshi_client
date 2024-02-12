@@ -26,12 +26,15 @@ export const ProfileButton = () => {
           />
           <Typography
             sx={{
-              pl: 2,
+              ml: 4,
               fontSize: 13,
               fontWeight: 600,
+              textAlign: "center",
             }}
           >
-            {user.login.slice(0, 12)}
+            {user.login.length > 12
+              ? user.login.slice(0, 12) + "..."
+              : user.login}
           </Typography>
         </StyledButton>
       </Link>

@@ -16,13 +16,13 @@ import { useMediaQuery } from "@mui/material";
 import { MainContainer } from "@/shared/containers/main-container";
 
 export const ProfilePage: FC<ProfilePageProps> = ({ user }) => {
-  const isMobile = useMediaQuery("(max-width: 1600px)");
+  const isMobile = useMediaQuery("(max-width: 1000px)");
 
   return isMobile ? (
     <>
       <ProfileWallpaper wallpaper_url={user.wallpaper_url} />
       <MainContainer>
-        <UserCard user={user} />
+        <UserCard />
         <UserStatistic user_id={user.id} />
         <UserHistoryContainer style={{ margin: "1rem 0" }}>
           <UserHistoryModeProvider>
@@ -37,7 +37,7 @@ export const ProfilePage: FC<ProfilePageProps> = ({ user }) => {
       <MainContainer>
         <UserProfileContainer>
           <UserProfileDataContainer>
-            <UserCard user={user} />
+            <UserCard />
             <UserStatistic user_id={user.id} />
           </UserProfileDataContainer>
           <UserHistoryContainer>

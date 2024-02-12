@@ -5,18 +5,19 @@ import { FC, useState } from "react";
 import { BigSlide } from "./lib/big-slide";
 import { SmallSliderContainer, StyledContainer } from "./styles";
 import { Slider } from "@/shared/components/slider";
+import { useMediaQuery } from "@mui/material";
 
 export const HomeSlider: FC<{ sliders: IAnimeSlider[] }> = ({ sliders }) => {
   const [selectedSlide, setSelectedSlide] = useState<IAnimeSlider>(sliders[0]);
-
+  const isMobile = useMediaQuery("(max-width: 420px)");
   const smallSlides = sliders.map((slide) => (
     <Image
       onClick={() => setSelectedSlide(slide)}
       key={`small-slide ${slide.id}`}
       src={slide.image_url || ""}
       alt={slide.title || ""}
-      width={196}
-      height={280}
+      width={isMobile ? 140 : 196}
+      height={isMobile ? 220 : 280}
       style={{ borderRadius: 30, cursor: "pointer" }}
     />
   ));
@@ -28,7 +29,7 @@ export const HomeSlider: FC<{ sliders: IAnimeSlider[] }> = ({ sliders }) => {
         <Slider
           sliders={smallSlides}
           isLoading={false}
-          breakpoints={{ 0: { slidesPerView: 3 } }}
+          breakpoints={{ 0: { slidesPerView: 4 } }}
         />
       </SmallSliderContainer>
     </StyledContainer>

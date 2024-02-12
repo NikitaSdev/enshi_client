@@ -1,6 +1,6 @@
 "use client";
 import { useUserHistoryMode } from "@/shared/context/history-mode";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import {
   DividerBar,
@@ -10,6 +10,7 @@ import {
 
 export const TypeSwitcher = () => {
   const { toggleMode } = useUserHistoryMode();
+  const isMobile = useMediaQuery("(max-width: 380px)");
   const [selected, setSelected] = useState<"favourite" | "viewed">("viewed");
   const handleSelect = (type: "favourite" | "viewed") => {
     setSelected(type);
@@ -25,7 +26,9 @@ export const TypeSwitcher = () => {
             handleSelect("viewed");
           }}
         >
-          <Typography variant="subtitle1">Просмотрено</Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 14 : 18 }}>
+            Просмотрено
+          </Typography>
         </StyledSwitchButton>
         <StyledSwitchButton
           active={selected === "favourite"}
@@ -34,7 +37,9 @@ export const TypeSwitcher = () => {
             handleSelect("favourite");
           }}
         >
-          <Typography variant="subtitle1">Избранное</Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: isMobile ? 14 : 18 }}>
+            Избранное
+          </Typography>
         </StyledSwitchButton>
       </Box>
       <StyledDividerContainer>

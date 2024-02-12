@@ -1,6 +1,5 @@
 "use client";
-import { ProfileWallpaper } from "@/shared/components/profile-wallpaper";
-import { Box, Button } from "@mui/material";
+
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import {
@@ -10,13 +9,49 @@ import {
   StyledWallpaperChangeButton,
   WallpaperContainer,
 } from "./styles";
+import { useRef } from "react";
+import { changeAvatar, changeWallpaper } from "./model";
+import { uploadService } from "./api";
 
 export const ChangePhotos = () => {
-  const { data } = useSession();
+  const { data, update } = useSession();
+  const wallpaperInputRef = useRef<HTMLInputElement>(null);
+  const avatarInputRef = useRef<HTMLInputElement>(null);
   const user = data?.user as {
     wallpaper_url: string;
     avatar_url: string;
     login: string;
+    id: number;
+  };
+  const handleWallpaperChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files = event.target.files;
+
+    if (files && files.length > 0) {
+      const data = await uploadService.upload(files[0], "wallpapers");
+      await changeWallpaper(data[0].url, user?.id);
+      await update({ ...data, user: { wallpaper_url: data[0].url } });
+    }
+    if (wallpaperInputRef.current) {
+      wallpaperInputRef.current.value = "";
+    }
+  };
+
+  const handleAvatarChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files = event.target.files;
+
+    if (files && files.length > 0) {
+      const data = await uploadService.upload(files[0], "avatars");
+      await changeAvatar(data[0].url, user?.id);
+      console.log(data[0].url);
+      await update({ ...data, user: { avatar_url: data[0].url } });
+    }
+    if (wallpaperInputRef.current) {
+      wallpaperInputRef.current.value = "";
+    }
   };
 
   return (
@@ -31,7 +66,18 @@ export const ChangePhotos = () => {
             objectPosition="center"
             style={{ borderRadius: 10 }}
           />
-          <StyledWallpaperChangeButton>Сменить</StyledWallpaperChangeButton>
+          <input
+            type="file"
+            ref={wallpaperInputRef}
+            onChange={handleWallpaperChange}
+            style={{ display: "none" }}
+            accept=".jpg, .jpeg, .gif, .png"
+          />
+          <StyledWallpaperChangeButton
+            onClick={() => wallpaperInputRef.current?.click()}
+          >
+            Сменить
+          </StyledWallpaperChangeButton>
         </WallpaperContainer>
         <StyledAvatarContainer>
           <Image
@@ -41,7 +87,18 @@ export const ChangePhotos = () => {
             height={100}
             style={{ borderRadius: 10, zIndex: 10 }}
           />
-          <StyledAvatarChangeButton>Сменить</StyledAvatarChangeButton>
+          <input
+            type="file"
+            ref={avatarInputRef}
+            onChange={handleAvatarChange}
+            style={{ display: "none" }}
+            accept=".jpg, .jpeg, .gif, .png"
+          />
+          <StyledAvatarChangeButton
+            onClick={() => avatarInputRef.current?.click()}
+          >
+            Сменить
+          </StyledAvatarChangeButton>
         </StyledAvatarContainer>
       </StyledContainer>
     )

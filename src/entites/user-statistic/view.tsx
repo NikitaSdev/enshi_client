@@ -13,7 +13,7 @@ import {
 } from "@/entites/user-statistic/styles";
 
 export const UserStatistic: FC<UserStatisticProps> = ({ user_id }) => {
-  const isMobile = useMediaQuery("(max-width: 1600px)");
+  const isMobile = useMediaQuery("(max-width: 1000px)");
   const { data: statistic, isLoading } = useQuery({
     queryKey: ["get-user-statistic"],
     queryFn: async () => await getUserStatistic(user_id),
@@ -25,7 +25,14 @@ export const UserStatistic: FC<UserStatisticProps> = ({ user_id }) => {
   ) : (
     <StyledContainer>
       <StyledStaticBox>
-        <Title>Статистика</Title>
+        <Typography
+          variant="h2"
+          sx={{ fontSize: 23, fontWeight: 700 }}
+          mt={2}
+          mb={2}
+        >
+          Статистика
+        </Typography>
         <TextContainer>
           <Typography variant="subtitle2" sx={{ fontSize: 14 }}>
             Просмотрено
@@ -55,7 +62,14 @@ export const UserStatistic: FC<UserStatisticProps> = ({ user_id }) => {
       </StyledStaticBox>
       <HrLine />
       <StyledStaticBox>
-        <Title>Всего</Title>
+        <Typography
+          variant="h2"
+          sx={{ fontSize: 23, fontWeight: 700 }}
+          mt={2}
+          mb={2}
+        >
+          Всего
+        </Typography>
         <TextContainer>
           <Typography variant="subtitle2" sx={{ fontSize: 14 }}>
             Аниме

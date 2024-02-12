@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { IAnimeInfo } from "./types";
 import Image from "next/image";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { FavouriteButton } from "./lib/favourite-button";
 import {
   StyledContainer,
@@ -11,6 +11,8 @@ import {
 } from "@/screens/anime-page/styles";
 
 export const AnimeInfo: FC<IAnimeInfo> = ({ anime }) => {
+  const isMobile = useMediaQuery("(max-width: 800px)");
+
   const data = {
     year: "Год: ",
     genre: "Жанр: ",
@@ -22,16 +24,12 @@ export const AnimeInfo: FC<IAnimeInfo> = ({ anime }) => {
         <Image
           src={anime.material_data.poster_url}
           alt={anime.title}
-          width={200}
-          height={300}
+          width={isMobile ? 300 : 200}
+          height={isMobile ? 430 : 300}
           style={{ borderRadius: "1rem" }}
         />
         <StyledTextContainer>
-          <Typography
-            variant="h2"
-            sx={{ fontWeight: 700, fontSize: 23 }}
-            style={{ margin: "0rem 0rem 2rem 3.25rem" }}
-          >
+          <Typography variant="h2" sx={{ fontWeight: 700, fontSize: 23 }}>
             {anime.title}
           </Typography>
           <TextContainers>
@@ -58,10 +56,12 @@ export const AnimeInfo: FC<IAnimeInfo> = ({ anime }) => {
               </Typography>
             </TextCard>
           </TextContainers>
-          <Typography style={{ margin: "0rem 0rem 2rem 3.25rem" }}>
-            {anime.material_data.description}
+          <Typography mt={3}>
+            {anime.material_data.description.length > 440
+              ? anime.material_data.description.slice(0, 440) + "..."
+              : anime.material_data.description}
           </Typography>
-          <Box style={{ margin: "0rem 0rem 2rem 3.25rem" }}>
+          <Box sx={{ mt: 3 }}>
             <FavouriteButton anime_id={anime.anime_id} />
           </Box>
         </StyledTextContainer>

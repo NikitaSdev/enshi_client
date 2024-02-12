@@ -24,7 +24,9 @@ export const HomePage: FC<IHomePage> = ({
     <main>
       <HomeSlider sliders={sliders} />
       <MainContainer>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mt: 10 }}>
+        <Box
+          sx={{ display: "flex", alignItems: "center", gap: 2, mt: 10, mb: 3 }}
+        >
           <Link href={"/catalog"}>
             <Typography variant={"h2"} mt={2}>
               Популярное
@@ -46,17 +48,15 @@ export const HomePage: FC<IHomePage> = ({
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignitems: "flex-end",
+            alignitems: "flex-start",
             mt: 5,
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
             <Link href={"/catalog"}>
-              <Typography variant={"h2"} mt={2}>
-                Смотреть аниме{" "}
-              </Typography>
+              <Typography variant={"h2"}>Смотреть аниме </Typography>
             </Link>
-            <span style={{ marginTop: 20 }}>
+            <span style={{ marginLeft: 5, marginTop: 5 }}>
               <Image src={Ic_Chevron} alt={"Смотреть аниме"} />
             </span>
           </Box>

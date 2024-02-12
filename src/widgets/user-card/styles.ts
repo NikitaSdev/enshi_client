@@ -1,20 +1,21 @@
 import { Box, Grid, styled, Typography } from "@mui/material";
 
-export const StyledContainer = styled(Box)(() => ({
+export const StyledContainer = styled(Box)(({ theme }) => ({
   width: "18.125rem",
   height: "28.0625rem",
-  background: "#1F1F25",
+  background: theme.palette.gray.contrastText,
   borderRadius: "1rem",
   display: "flex",
   position: "relative",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+  "@media()": {},
 }));
 
 export const MobileStyledContainer = styled(Box)(() => ({
   width: "100%",
-  height: "13.125rem",
+  padding: 40,
   background: "#1F1F25",
   borderRadius: "1rem",
   display: "flex",
@@ -22,9 +23,12 @@ export const MobileStyledContainer = styled(Box)(() => ({
   justifyContent: "space-around",
   alignItems: "center",
   flexDirection: "row",
+  marginTop: -100,
+  "@media(max-width:480px)": {
+    flexDirection: "column",
+  },
 }));
 export const UserLogin = styled(Typography)(() => ({
-  color: "#fff",
   margin: "1rem",
   fontSize: "23px",
   fontWeight: 600,

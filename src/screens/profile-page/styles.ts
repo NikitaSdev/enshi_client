@@ -14,10 +14,10 @@ export const UserProfileDataContainer = styled(Box)(() => ({
   flexDirection: "column",
 }));
 
-export const UserHistoryContainer = styled(Box)(() => ({
+export const UserHistoryContainer = styled(Box)(({ theme }) => ({
   margin: "6rem 1rem 4rem 3rem",
   width: "100%",
   height: "auto",
-  background: "#1F1F25",
+  background: theme.palette.gray.contrastText,
   borderRadius: "1rem",
 }));

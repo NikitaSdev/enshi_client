@@ -26,7 +26,7 @@ const authOptions: NextAuthOptions = {
 
         const passwordsMatch = await bcrypt.compare(
           credentials.password,
-          user.password || "",
+          user.password || ""
         );
 
         if (!passwordsMatch) return null;
@@ -64,10 +64,21 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session, token, user, newSession, trigger }) {
       session.user = token;
+      if (trigger === "update") {
+        token.email = session?.user?.email;
+        token.login = session?.user?.name;
+      }
       return session;
     },
 
-    async jwt({ token, user }: { token: any; user: any }) {
+    async jwt({ token, user, session, trigger }: any) {
+      if (trigger === "update") {
+        if (session.user.email) token.email = session.user.email;
+        if (session.user.login) token.login = session.user.login;
+        if (session.user.wallpaper_url)
+          token.wallpaper_url = session.user.wallpaper_url;
+        if (session.user.avatar_url) token.avatar_url = session.user.avatar_url;
+      }
       if (user) {
         token.id = user.id;
         token.admin = user.admin;

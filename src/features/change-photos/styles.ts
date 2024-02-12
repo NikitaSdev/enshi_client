@@ -36,4 +36,8 @@ export const StyledAvatarContainer = styled(Box)(() => ({
   marginLeft: 80,
   marginTop: -30,
   zIndex: 10,
+  "@media(max-width:420px)": {
+    marginLeft: 40,
+    gap: 10,
+  },
 }));

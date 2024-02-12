@@ -12,9 +12,6 @@ export const BigSlideContainer = styled(Box)(() => ({
   "@media (max-width: 744px)": {
     minHeight: 500,
   },
-  "@media (max-width: 480px)": {
-    minHeight: 450,
-  },
 }));
 
 export const StyledFade = styled(Box)(() => ({

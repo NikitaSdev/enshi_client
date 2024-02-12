@@ -42,7 +42,7 @@ export const BigSlide: FC<BigSlideProps> = ({ slide }) => {
 
           <Typography
             variant="subtitle1"
-            sx={{ color: "white", maxWidth: 371, mt: 1 }}
+            sx={{ color: "white", maxWidth: 420, mt: 1 }}
           >
             {slide.description}
           </Typography>

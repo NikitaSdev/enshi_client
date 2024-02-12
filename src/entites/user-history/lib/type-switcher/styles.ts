@@ -1,8 +1,8 @@
 import { Box, styled } from "@mui/material";
 
-export const AnimeContainer = styled(Box)(() => ({
+export const AnimeContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  // justifyContent: "space-around",
+  background: theme.palette.gray.contrastText,
   position: "relative",
 }));
 
@@ -15,7 +15,6 @@ export const StyledSwitchButton = styled("button")<{ active?: boolean }>(
       color: !active ? "#828282" : undefined,
       transition: "0.3s",
       fontWeight: 600,
-      fontSize: 18,
     },
   })
 );

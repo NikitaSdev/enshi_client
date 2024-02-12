@@ -12,6 +12,7 @@ import {
 } from "./styles";
 import Image from "next/image";
 import Ic_Chevron from "@/assets/icons/ic_chevron__sm.svg";
+import { motion } from "framer-motion";
 
 export const Slider: FC<SliderProps> = ({
   sliders,
@@ -55,23 +56,21 @@ export const Slider: FC<SliderProps> = ({
       )}
 
       <StyledSwiper
+        sm={!!breakpoints}
         breakpoints={
           breakpoints
             ? breakpoints
             : {
                 0: {
-                  slidesPerView: 1,
-                },
-                360: {
                   slidesPerView: 2,
                 },
-                700: {
+                650: {
                   slidesPerView: 3,
                 },
-                1050: {
+                850: {
                   slidesPerView: 4,
                 },
-                1250: {
+                1050: {
                   slidesPerView: 5,
                 },
               }
@@ -83,7 +82,14 @@ export const Slider: FC<SliderProps> = ({
       >
         {sliders.map((item, index) => (
           <SwiperSlide key={sliders.length + index} style={{ width: 196 }}>
-            <>{item}</>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              key={index}
+            >
+              {item}
+            </motion.div>
           </SwiperSlide>
         ))}
       </StyledSwiper>

@@ -13,17 +13,17 @@ export const SocialLinks = () => {
     <></>
   ) : (
     <StyledContainer>
-      <Link href={""}>
+      <Link href={"https://vk.com/enshii"}>
         <StyledContactButton>
           <Image src={Ic_Vk} alt="Вконтакте" width={32} height={26} />
         </StyledContactButton>
       </Link>
-      <Link href={""}>
+      <Link href={"https://t.me/theanimegrb"}>
         <StyledContactButton>
           <Image src={Ic_Tg} alt="Telegram" width={28} height={28} />
         </StyledContactButton>
       </Link>
-      <Link href={""}>
+      <Link href={"https://www.youtube.com/@aki-o"}>
         <StyledContactButton>
           <Image src={Ic_Yt} alt="Youtube" width={34} height={34} />
         </StyledContactButton>

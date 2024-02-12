@@ -4,7 +4,17 @@ import { Box, Button } from "@mui/material";
 
 export const AnimeTypeSwitcher: FC<ISwitchType> = ({ type, setType }) => {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 3, mb: 3, mr: 5 }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        flexWrap: "wrap",
+        gap: 3,
+        mb: 3,
+        mr: 5,
+      }}
+    >
       <Button
         disabled={type === "high-rated"}
         onClick={() => setType("high-rated")}

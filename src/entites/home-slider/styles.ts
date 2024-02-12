@@ -15,16 +15,26 @@ export const StyledContainer = styled(Box)(() => ({
   "@media (max-width: 744px)": {
     minHeight: 500,
   },
-  "@media (max-width: 480px)": {
-    minHeight: 450,
-  },
 }));
 
 export const SmallSliderContainer = styled(Box)(() => ({
   position: "absolute",
   bottom: -150,
-  right: 5,
+  right: 170,
   width: 650,
   height: 360,
   zIndex: 10,
+  "@media(max-width:1100px)": {
+    right: -40,
+  },
+  "@media(max-width:900px)": {
+    right: -240,
+  },
+  "@media(max-width:650px)": {
+    right: -450,
+  },
+  "@media(max-width:420px)": {
+    right: -500,
+    bottom: -250,
+  },
 }));
