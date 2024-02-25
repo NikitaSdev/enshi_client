@@ -19,7 +19,7 @@ export const baseStyles = css`
   body {
     margin: 0;
     padding: 0;
-    font-family: var(--red-hat-text-font);
+    font-family: var(--montserrat-font);
     font-size: var(--body-font-size);
     line-height: var(--body-line-height);
     font-weight: var(--body-font-weight);

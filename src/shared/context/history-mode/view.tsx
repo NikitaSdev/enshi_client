@@ -8,17 +8,16 @@ export const UserHistoryModeProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [mode, setMode] = useState<HistoryMode>("viewed");
+  const [mode, setMode] = useState<HistoryMode>("favourite");
 
-  const toggleMode = useCallback(
-    (mode: HistoryMode) => {
-      setMode(mode);
-    },
-    [mode]
-  );
+  const toggleMode = useCallback((mode: HistoryMode) => {
+    setMode(mode);
+  }, []);
 
   return (
-    <UserHistoryContext.Provider value={{ mode: mode || "viewed", toggleMode }}>
+    <UserHistoryContext.Provider
+      value={{ mode: mode || "favourite", toggleMode }}
+    >
       {children}
     </UserHistoryContext.Provider>
   );

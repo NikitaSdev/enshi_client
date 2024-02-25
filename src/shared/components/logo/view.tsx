@@ -5,15 +5,16 @@ import { useMediaQuery } from "@mui/material";
 
 export const Logo = () => {
   const isMobile = useMediaQuery("(max-width: 1600px)");
-  return isMobile ? (
-    <Link href="/" style={{ textDecoration: "none", justifyContent: "right" }}>
-      <StyledLogo>
-        ENSHI<StyledSpan>.</StyledSpan>
-      </StyledLogo>{" "}
-    </Link>
-  ) : (
-    <Link href="/" style={{ textDecoration: "none" }}>
-      <StyledLogo>
+  return (
+    <Link
+      href="/"
+      style={
+        isMobile
+          ? { textDecoration: "none", justifyContent: "right" }
+          : { textDecoration: "none" }
+      }
+    >
+      <StyledLogo style={{ fontFamily: "var(--font-aqum)" }}>
         ENSHI<StyledSpan>.</StyledSpan>
       </StyledLogo>{" "}
     </Link>

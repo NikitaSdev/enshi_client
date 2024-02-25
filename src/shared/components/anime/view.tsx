@@ -40,7 +40,10 @@ export const Anime: FC<{ anime: IAnime; width?: number; height?: number }> = ({
   if (!anime.material_data?.poster_url) return null;
   return (
     <Link href={`/anime/${anime.anime_id}`}>
-      <AnimeCard width={width} height={Number(height) + 80}>
+      <AnimeCard
+        width={width}
+        height={isNaN(Number(height)) ? 363 : Number(height) + 80}
+      >
         <div style={{ position: "relative" }}>
           <Image
             src={anime.material_data?.poster_url}
@@ -57,19 +60,22 @@ export const Anime: FC<{ anime: IAnime; width?: number; height?: number }> = ({
             {anime.rating}
           </StarIconContainer>
         </div>
-        <Typography variant="subtitle1" sx={{ fontSize: height ? 14 : 16 }}>
+        <Typography
+          variant="subtitle1"
+          sx={{ fontSize: height ? 14 : 16, lineHeight: 1.3 }}
+        >
           {anime.title.length > maxSymbols
             ? `${anime.title.slice(0, maxSymbols)}...`
             : anime.title}
         </Typography>
         <AnimeYearGenreContainer>
-          <Typography variant="subtitle2" sx={{ fontSize: height ? 12 : 14 }}>
+          <Typography variant="subtitle2" sx={{ fontSize: height ? 12 : 13 }}>
             {anime.year}
           </Typography>
 
           <Typography
             variant="subtitle2"
-            sx={{ fontSize: height ? 12 : 14, textAlign: "right" }}
+            sx={{ fontSize: height ? 12 : 13, textAlign: "right" }}
           >
             {anime.material_data?.anime_genres?.slice(0, 2).join("/") ||
               "Аниме"}

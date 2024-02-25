@@ -23,7 +23,7 @@ export const StyledSwiperControlButton = styled("button")<{
   marginBottom: centered ? 80 : undefined,
 }));
 
-export const StyledSwiper: any = styled(Swiper)<{ sm?: boolean }>(({ sm }) => ({
+export const StyledSwiper: any = styled(Swiper)<{ sm?: string }>(({ sm }) => ({
   width: "100%",
   minWidth: sm ? 800 : 400,
   display: "flex",

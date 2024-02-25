@@ -56,7 +56,16 @@ export const FilterPopover: FC<FilterPopoverProps> = ({
   );
 
   return (
-    <Popover open={open} onClose={onClose} anchorEl={anchorEl}>
+    <Popover
+      open={open}
+      onClose={onClose}
+      anchorEl={anchorEl}
+      sx={{ maxHeight: 500 }}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+    >
       <List>
         {filterValues?.map((filter) => (
           <ListItem key={filter.id} onClick={() => handleSetFilters(filter)}>

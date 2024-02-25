@@ -5,7 +5,7 @@ export const StyledSpan = styled("span")(({ theme }) => ({
   color: theme.palette.purple.main,
 }));
 
-export const StyledLogo = styled("h1")(({ theme }) => ({
+export const StyledLogo = styled("h1")(() => ({
   color: "#FFF",
   fontSize: 30,
   fontWeight: 700,

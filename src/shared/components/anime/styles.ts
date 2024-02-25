@@ -32,6 +32,7 @@ export const StarIconContainer = styled("div")<{ height?: number }>(
     height: "2rem",
     justifyContent: "center",
     alignItems: "center",
+    gap: 5,
     width: "50%",
     position: "absolute",
     top: height ? "85.4%" : "87.4%",
@@ -39,5 +40,6 @@ export const StarIconContainer = styled("div")<{ height?: number }>(
     color: "white",
     padding: "5px",
     borderRadius: "0 1rem",
+    fontSize: 14,
   })
 );

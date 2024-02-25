@@ -1,8 +1,8 @@
 import { Box, Button, styled } from "@mui/material";
 
 export const StyledContainer = styled(Box)(() => ({
-  width: "1rem",
-  height: "2rem",
+  width: "0.2rem",
+  height: "1.8rem",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

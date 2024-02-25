@@ -4,6 +4,9 @@ import { Container, styled } from "@mui/material";
 export const StyledFooter = styled("footer")(() => ({
   height: 200,
   background: "#1F1F25",
+  "@media (max-width: 420px)": {
+    height: 280,
+  },
 }));
 
 export const StyledCopyRight = styled("h3")(() => ({
@@ -23,6 +26,6 @@ export const StyledContainer = styled(Container)(() => ({
     flexDirection: "column",
     textAlign: "center",
     justifyContent: "center",
-    gap: 10,
+    gap: 40,
   },
 }));

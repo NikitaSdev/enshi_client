@@ -56,7 +56,7 @@ export const Slider: FC<SliderProps> = ({
       )}
 
       <StyledSwiper
-        sm={!!breakpoints}
+        sm={breakpoints ? "true" : undefined}
         breakpoints={
           breakpoints
             ? breakpoints

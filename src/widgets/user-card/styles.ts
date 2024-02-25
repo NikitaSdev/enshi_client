@@ -2,7 +2,7 @@ import { Box, Grid, styled, Typography } from "@mui/material";
 
 export const StyledContainer = styled(Box)(({ theme }) => ({
   width: "18.125rem",
-  height: "28.0625rem",
+  height: "25rem",
   background: theme.palette.gray.contrastText,
   borderRadius: "1rem",
   display: "flex",
@@ -10,7 +10,6 @@ export const StyledContainer = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  "@media()": {},
 }));
 
 export const MobileStyledContainer = styled(Box)(() => ({
@@ -43,5 +42,5 @@ export const StyledGrid = styled(Grid)(() => ({
   alignItems: "center",
   width: "8.75rem",
   height: "3.125rem",
-  margin: "1rem",
+  marginTop: "1.5rem",
 }));

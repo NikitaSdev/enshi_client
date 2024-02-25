@@ -10,6 +10,7 @@ import { useMediaQuery } from "@mui/material";
 export const HomeSlider: FC<{ sliders: IAnimeSlider[] }> = ({ sliders }) => {
   const [selectedSlide, setSelectedSlide] = useState<IAnimeSlider>(sliders[0]);
   const [isDataProceed, setIsDataProceed] = useState(false);
+
   useEffect(() => {
     if (!isDataProceed) {
       if (sliders && sliders.length > 0) {
@@ -17,7 +18,8 @@ export const HomeSlider: FC<{ sliders: IAnimeSlider[] }> = ({ sliders }) => {
         setSelectedSlide(sliders[0]);
       }
     }
-  }, [sliders]);
+  }, [sliders, isDataProceed]);
+
   const isMobile = useMediaQuery("(max-width: 420px)");
   const smallSlides = sliders.map((slide) => (
     <Image

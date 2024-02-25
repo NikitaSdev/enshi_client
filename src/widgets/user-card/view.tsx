@@ -19,9 +19,10 @@ export const UserCard: FC = () => {
   const isSmallMobile = useMediaQuery("(max-width: 480px)");
   const { data } = useSession();
   const user: any = data?.user;
+  const isColumnLayout = isMobile && !isSmallMobile;
 
-  return isTablet ? (
-    <MobileStyledContainer>
+  return (
+    <StyledContainer>
       <Image
         src={user?.avatar_url || ""}
         alt={user?.login || ""}
@@ -29,45 +30,15 @@ export const UserCard: FC = () => {
         height={140}
         style={{ borderRadius: "1rem" }}
       />
-      <Grid style={{ margin: "1rem" }}>
-        <Typography variant="h2" m={2}>
-          {user?.login}
-        </Typography>
-        <UserStatus user_id={user?.id} />
-      </Grid>
-
-      <StyledGrid
-        style={{
-          flexDirection:
-            isMobile && !isSmallMobile
-              ? "column"
-              : isSmallMobile
-                ? "row"
-                : "column",
-        }}
-      >
-        <Grid style={{ marginTop: "0.2rem" }}>
-          <Settings />
-        </Grid>
-        <Grid style={{ marginTop: "0.2rem" }}>
-          <LogoutButton />
-        </Grid>
-      </StyledGrid>
-    </MobileStyledContainer>
-  ) : (
-    <StyledContainer>
-      <Image
-        src={user?.avatar_url}
-        alt={user?.login}
-        width={140}
-        height={140}
-        style={{ borderRadius: "1rem" }}
-      />
-      <Typography variant="h2" m={2}>
+      <Typography variant="h2" m={2} sx={{ fontHeight: 600 }}>
         {user?.login}
       </Typography>
       <UserStatus user_id={user?.id} />
-      <StyledGrid>
+      <StyledGrid
+        style={{
+          flexDirection: isColumnLayout ? "column" : "row",
+        }}
+      >
         <Grid>
           <Settings />
         </Grid>

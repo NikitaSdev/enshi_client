@@ -34,26 +34,26 @@ export const UserStatistic: FC<UserStatisticProps> = ({ user_id }) => {
           Статистика
         </Typography>
         <TextContainer>
-          <Typography variant="subtitle2" sx={{ fontSize: 14 }}>
+          <Typography variant="subtitle2" sx={{ fontSize: 16 }}>
             Просмотрено
           </Typography>
           <Box sx={{ textAlign: "right" }}>
             <Typography
               variant="subtitle2"
-              sx={{ fontSize: 14, color: "#C0A1FF" }}
+              sx={{ fontSize: 16, color: "#C0A1FF" }}
             >
               {statistic?.watched_animes}
             </Typography>
           </Box>
         </TextContainer>
         <TextContainer>
-          <Typography variant="subtitle2" sx={{ fontSize: 14 }}>
+          <Typography variant="subtitle2" sx={{ fontSize: 16 }}>
             В избранном
           </Typography>
           <Box sx={{ textAlign: "right" }}>
             <Typography
               variant="subtitle2"
-              sx={{ fontSize: 14, color: "#C0A1FF" }}
+              sx={{ fontSize: 16, color: "#C0A1FF" }}
             >
               {statistic?.favourite_anime}
             </Typography>
@@ -71,26 +71,26 @@ export const UserStatistic: FC<UserStatisticProps> = ({ user_id }) => {
           Всего
         </Typography>
         <TextContainer>
-          <Typography variant="subtitle2" sx={{ fontSize: 14 }}>
+          <Typography variant="subtitle2" sx={{ fontSize: 16 }}>
             Аниме
           </Typography>
           <Box sx={{ textAlign: "right" }}>
             <Typography
               variant="subtitle2"
-              sx={{ fontSize: 14, color: "#C0A1FF" }}
+              sx={{ fontSize: 16, color: "#C0A1FF" }}
             >
               {statistic?.watched_animes}
             </Typography>
           </Box>
         </TextContainer>
         <TextContainer>
-          <Typography variant="subtitle2" sx={{ fontSize: 14 }}>
+          <Typography variant="subtitle2" sx={{ fontSize: 16 }}>
             Эпизодов
           </Typography>
           <Box sx={{ textAlign: "right" }}>
             <Typography
               variant="subtitle2"
-              sx={{ fontSize: 14, color: "#C0A1FF" }}
+              sx={{ fontSize: 16, color: "#C0A1FF" }}
             >
               {statistic?.all_watched_episodes}
             </Typography>

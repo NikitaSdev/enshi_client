@@ -11,6 +11,7 @@ import { TanstackProvider } from "@/providers/tanstack-provider";
 import NextTopLoader from "nextjs-toploader";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "Enshi.",
@@ -37,6 +38,12 @@ export const montserrat = Montserrat({
   display: "swap",
 });
 
+export const aqum = localFont({
+  weight: "700",
+  variable: "--font-aqum",
+  src: "../../public/fonts/Aqum.ttf",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -46,6 +53,7 @@ export default function RootLayout({
     <html lang="ru">
       <Script
         id={"yandex-metrika"}
+        async
         dangerouslySetInnerHTML={{
           __html: `
                 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -59,17 +67,8 @@ export default function RootLayout({
               `,
         }}
       />
-      <noscript>
-        <div>
-          <img
-            src="https://mc.yandex.ru/watch/93902630"
-            style={{ position: "absolute", left: "-9999px" }}
-            alt=""
-          />
-        </div>
-      </noscript>
-      <body className={montserrat.className}>
-        {/* <NextTopLoader color="#8C53FD" /> */}
+      <body className={`${aqum.variable} ${montserrat.variable}`}>
+        <NextTopLoader color="#8C53FD" />
         <ServiceWorkerRegister />
         <TanstackProvider>
           <AuthProvider>

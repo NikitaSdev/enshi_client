@@ -46,7 +46,7 @@ export const ProfilePage: FC<ProfilePageProps> = ({ user }) => {
             </UserHistoryModeProvider>
           </UserHistoryContainer>
         </UserProfileContainer>
-      </MainContainer>{" "}
+      </MainContainer>
     </>
   );
 };
