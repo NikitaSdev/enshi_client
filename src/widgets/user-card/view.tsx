@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import { UserStatus } from "@/shared/components/user-status";
 import { LogoutButton } from "@/shared/components/logout-button";
@@ -10,8 +10,6 @@ import { StyledContainer, StyledGrid } from "@/widgets/user-card/styles";
 import { useSession } from "next-auth/react";
 
 export const UserCard: FC = () => {
-  const isMobile = useMediaQuery("(max-width: 750px)");
-  const isSmallMobile = useMediaQuery("(max-width: 480px)");
   const { data } = useSession();
   const user: any = data?.user;
 

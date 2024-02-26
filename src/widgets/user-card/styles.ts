@@ -16,6 +16,7 @@ export const StyledContainer = styled(Box)(({ theme }) => ({
     justifyContent: "space-between",
     height: 210,
     padding: "0 40px",
+    marginTop: 20,
   },
   "@media(max-width:563px)": {
     flexDirection: "column",
