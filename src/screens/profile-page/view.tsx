@@ -28,7 +28,7 @@ export const ProfilePage: FC<ProfilePageProps> = ({ user }) => {
           <UserHistoryModeProvider>
             <UserHistory user_id={user.id} />
           </UserHistoryModeProvider>
-        </UserHistoryContainer>{" "}
+        </UserHistoryContainer>
       </MainContainer>
     </>
   ) : (

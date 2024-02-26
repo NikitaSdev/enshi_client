@@ -60,6 +60,7 @@ export const SearchAnime: FC<{ setAnime?: (arg: IAnime) => void }> = ({
         onClick={() => searchTerm.length !== 0 && setOpen(true)}
       >
         <Input
+          style={{ background: "#333238" }}
           onChange={handleSearch}
           value={searchTerm}
           placeholder="Поиск аниме"

@@ -16,7 +16,7 @@ export const AnimeList: FC<IAnimeList> = ({ anime, count, type }) => {
   const isTablet = useMediaQuery("(max-width:744px)");
   const isMobile = useMediaQuery("(max-width:480px)");
   const isSmallMobile = useMediaQuery("(max-width:420px)");
-
+  const isVerySmallMobile = useMediaQuery("(max-width:380px)");
   const [size, setSize] = useState<{
     height: number | undefined;
     width: number | undefined;
@@ -30,17 +30,20 @@ export const AnimeList: FC<IAnimeList> = ({ anime, count, type }) => {
     "high-rated": getHighRated,
     new: getNew,
   };
+
   useEffect(() => {
     if (isTablet && !isMobile) {
       setSize({ height: 250, width: 165 });
     } else if (isMobile && !isSmallMobile) {
       setSize({ height: 240, width: 150 });
-    } else if (isSmallMobile) {
+    } else if (isSmallMobile && !isVerySmallMobile) {
+      setSize({ height: 230, width: 140 });
+    } else if (isVerySmallMobile) {
       setSize({ height: undefined, width: undefined });
     } else {
       setSize({ height: undefined, width: undefined });
     }
-  }, [isTablet, isMobile, isSmallMobile]);
+  }, [isTablet, isMobile, isSmallMobile, isVerySmallMobile]);
   const { data: animes, isLoading } = useQuery({
     queryKey: [type, page, genres, years, statuses],
     queryFn: async () => {

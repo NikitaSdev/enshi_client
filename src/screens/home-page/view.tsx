@@ -50,6 +50,7 @@ export const HomePage: FC<IHomePage> = ({
             justifyContent: "space-between",
             alignitems: "flex-start",
             mt: 5,
+            "@media(max-width: 560px)": { flexDirection: "column", gap: 2 },
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>

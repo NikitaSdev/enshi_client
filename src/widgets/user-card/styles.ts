@@ -10,23 +10,23 @@ export const StyledContainer = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-}));
-
-export const MobileStyledContainer = styled(Box)(() => ({
-  width: "100%",
-  padding: 40,
-  background: "#1F1F25",
-  borderRadius: "1rem",
-  display: "flex",
-  position: "relative",
-  justifyContent: "space-around",
-  alignItems: "center",
-  flexDirection: "row",
-  marginTop: -100,
-  "@media(max-width:480px)": {
+  "@media(max-width:1000px)": {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    height: 210,
+    padding: "0 40px",
+  },
+  "@media(max-width:563px)": {
     flexDirection: "column",
+    width: "100%",
+    justifyContent: "space-between",
+    height: "auto",
+    padding: "40px",
+    marginTop: 20,
   },
 }));
+
 export const UserLogin = styled(Typography)(() => ({
   margin: "1rem",
   fontSize: "23px",

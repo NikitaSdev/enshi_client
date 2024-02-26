@@ -57,7 +57,13 @@ export const BigSlide: FC<BigSlideProps> = ({ slide }) => {
             style={{ textDecoration: "none", marginTop: 20 }}
           >
             <Button
-              sx={{ background: "#8C53FD", height: 40, width: 160, mt: 2 }}
+              sx={{
+                background: "#8C53FD",
+                height: 40,
+                width: 160,
+                mt: 2,
+                "@media(max-width:480px)": { width: 140, height: 35 },
+              }}
             >
               Смотреть
             </Button>
