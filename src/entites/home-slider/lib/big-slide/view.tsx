@@ -1,14 +1,33 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { BigSlideProps } from "./types";
-import { Box, Button, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 import { BigSlideContainer, StyledFade, StyledBodyContainer } from "./styles";
 import Ic_Star from "@/assets/icons/ic_star.svg";
 import Link from "next/link";
 
 export const BigSlide: FC<BigSlideProps> = ({ slide }) => {
+  let initialMaxDescriptionLenght = 120;
+  const isMobile = useMediaQuery("(max-width: 740px)");
+
+  const [maxDescriptionLenght, setMaxDescriptionLengh] = useState(
+    initialMaxDescriptionLenght
+  );
+
+  useEffect(() => {
+    if (isMobile) {
+      setMaxDescriptionLengh(80);
+    }
+  }, [isMobile]);
+
   return (
     <BigSlideContainer>
       <StyledFade />
@@ -50,7 +69,9 @@ export const BigSlide: FC<BigSlideProps> = ({ slide }) => {
               fontSize: 17,
             }}
           >
-            {slide.description}
+            {Number(slide?.description?.length) >= maxDescriptionLenght
+              ? slide.description?.slice(0, maxDescriptionLenght) + "..."
+              : slide.description}
           </Typography>
           <Link
             href={`/anime/${slide.anime_id}`}
