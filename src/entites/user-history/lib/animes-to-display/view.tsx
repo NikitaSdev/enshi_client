@@ -13,7 +13,8 @@ export const AnimesToDisplay: FC<AnimesToDisplayProps> = ({
   const isTablet = useMediaQuery("(max-width:744px)");
   const isMobile = useMediaQuery("(max-width:480px)");
   const isSmallMobile = useMediaQuery("(max-width:420px)");
-  const isVerySmallMobile = useMediaQuery("(max-width:380px)");
+  const isVerySmallMobile = useMediaQuery("(max-width:400px)");
+  const isUltraSmallMobile = useMediaQuery("(max-width:400px)");
   const [size, setSize] = useState<{
     height: number | undefined;
     width: number | undefined;
@@ -26,12 +27,20 @@ export const AnimesToDisplay: FC<AnimesToDisplayProps> = ({
       setSize({ height: 240, width: 150 });
     } else if (isSmallMobile && !isVerySmallMobile) {
       setSize({ height: 230, width: 140 });
-    } else if (isVerySmallMobile) {
+    } else if (isVerySmallMobile && !isUltraSmallMobile) {
       setSize({ height: 220, width: 120 });
+    } else if (isUltraSmallMobile) {
+      setSize({ height: 200, width: 110 });
     } else {
       setSize({ height: undefined, width: undefined });
     }
-  }, [isTablet, isMobile, isSmallMobile, isVerySmallMobile]);
+  }, [
+    isTablet,
+    isMobile,
+    isSmallMobile,
+    isVerySmallMobile,
+    isUltraSmallMobile,
+  ]);
 
   if (isLoading) return null;
 
