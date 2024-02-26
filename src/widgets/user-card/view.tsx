@@ -24,7 +24,7 @@ export const UserCard: FC = () => {
         height={140}
         style={{ borderRadius: "1rem" }}
       />
-      <div>
+      <div style={{ textAlign: "center" }}>
         <Typography variant="h2" m={2} sx={{ fontHeight: 600 }}>
           {user?.login}
         </Typography>
