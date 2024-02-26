@@ -68,7 +68,7 @@ export default function RootLayout({
         }}
       />
       <body className={`${aqum.variable} ${montserrat.variable}`}>
-        <NextTopLoader color="#8C53FD" />
+        {/* <NextTopLoader color="#8C53FD" /> */}
         <ServiceWorkerRegister />
         <TanstackProvider>
           <AuthProvider>
