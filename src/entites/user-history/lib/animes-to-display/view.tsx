@@ -27,7 +27,7 @@ export const AnimesToDisplay: FC<AnimesToDisplayProps> = ({
     } else if (isSmallMobile && !isVerySmallMobile) {
       setSize({ height: 230, width: 140 });
     } else if (isVerySmallMobile) {
-      setSize({ height: undefined, width: undefined });
+      setSize({ height: 220, width: 120 });
     } else {
       setSize({ height: undefined, width: undefined });
     }

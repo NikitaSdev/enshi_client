@@ -45,7 +45,12 @@ export const BigSlide: FC<BigSlideProps> = ({ slide }) => {
         <Container sx={{ mt: 15 }}>
           <Typography
             variant="h1"
-            sx={{ color: "white", fontSize: 52, textTransform: "uppercase" }}
+            sx={{
+              color: "white",
+              fontSize: 52,
+              textTransform: "uppercase",
+              "@media(max-width:480px)": { fontSize: 38 },
+            }}
           >
             {slide.title}
           </Typography>
