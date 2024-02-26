@@ -1,10 +1,10 @@
 "use client";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IHomePage } from "./types";
 import { HomeSlider } from "@/entites/home-slider";
 import { AnimeList } from "@/entites/anime-list";
 import { AnimeTypeSwitcher } from "@/features/anime-type-switcher";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import Ic_Chevron from "@/assets/icons/ic_chevron__sm.svg";
@@ -20,6 +20,27 @@ export const HomePage: FC<IHomePage> = ({
   popular,
 }) => {
   const [type, setType] = useState<"new" | "high-rated">("high-rated");
+
+  const isTablet = useMediaQuery("(max-width:744px)");
+  const isMobile = useMediaQuery("(max-width:530px)");
+  const isVerySmallMobile = useMediaQuery("(max-width:480px)");
+  const [size, setSize] = useState<{
+    height: number | undefined;
+    width: number | undefined;
+  }>({ height: undefined, width: undefined });
+
+  useEffect(() => {
+    if (isTablet && !isMobile) {
+      setSize({ height: 250, width: 165 });
+    } else if (isMobile && !isVerySmallMobile) {
+      setSize({ height: 235, width: 140 });
+    } else if (isVerySmallMobile) {
+      setSize({ height: 220, width: 130 });
+    } else {
+      setSize({ height: undefined, width: undefined });
+    }
+  }, [isTablet, isMobile, isVerySmallMobile]);
+
   return (
     <main>
       <HomeSlider sliders={sliders} />
@@ -31,7 +52,7 @@ export const HomePage: FC<IHomePage> = ({
             <Typography variant={"h2"} mt={2}>
               Популярное
             </Typography>
-          </Link>{" "}
+          </Link>
           <span style={{ marginTop: 20 }}>
             <Image src={Ic_Chevron} alt={"Смотреть аниме "} />
           </span>
@@ -39,7 +60,12 @@ export const HomePage: FC<IHomePage> = ({
         <Slider
           centeredControls
           sliders={popular.map((item) => (
-            <Anime anime={item} key={item.anime_id} />
+            <Anime
+              anime={item}
+              key={item.anime_id}
+              width={size.width}
+              height={size.height}
+            />
           ))}
           isLoading={false}
         />

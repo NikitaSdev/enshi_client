@@ -9,6 +9,7 @@ import {
   StyledSwiperControlButton,
   SwiperContainer,
   StyledSwiper,
+  StyledSwiperSlide,
 } from "./styles";
 import Image from "next/image";
 import Ic_Chevron from "@/assets/icons/ic_chevron__sm.svg";
@@ -62,10 +63,7 @@ export const Slider: FC<SliderProps> = ({
             ? breakpoints
             : {
                 0: {
-                  slidesPerView: 2,
-                },
-                650: {
-                  slidesPerView: 3,
+                  slidesPerView: 2.5,
                 },
                 850: {
                   slidesPerView: 4,
@@ -81,16 +79,9 @@ export const Slider: FC<SliderProps> = ({
         spaceBetween={20}
       >
         {sliders.map((item, index) => (
-          <SwiperSlide key={sliders.length + index} style={{ width: 196 }}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              key={index}
-            >
-              {item}
-            </motion.div>
-          </SwiperSlide>
+          <StyledSwiperSlide key={sliders.length + index}>
+            {item}
+          </StyledSwiperSlide>
         ))}
       </StyledSwiper>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, styled } from "@mui/material";
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const SwiperContainer = styled(Box)(() => ({
   position: "relative",
@@ -30,4 +30,11 @@ export const StyledSwiper: any = styled(Swiper)<{ sm?: string }>(({ sm }) => ({
   justifyContent: "center",
   alignItems: "center",
   paddingLeft: 20,
+  "@media(max-width: 480px)": {
+    width: !sm && 100,
+  },
+}));
+
+export const StyledSwiperSlide = styled(SwiperSlide)(() => ({
+  width: 196,
 }));
